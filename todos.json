@@ -4,13 +4,31 @@
     "title": "Buy groceries",
     "completed": true,
     "created_at": "2025-10-30T06:56:34.732884142+01:00",
-    "due_date": "2025-10-30"
+    "due_date": "2025-10-30",
+    "priority": "Normal"
   },
   {
     "id": 2,
     "title": "practice rust",
     "completed": false,
     "created_at": "2025-10-30T06:57:06.392427391+01:00",
-    "due_date": "2025-11-02"
+    "due_date": "2025-11-02",
+    "priority": "Normal"
+  },
+  {
+    "id": 3,
+    "title": "Fix critical bug",
+    "completed": false,
+    "created_at": "2025-10-30T12:37:37.626769511+01:00",
+    "due_date": null,
+    "priority": "High"
+  },
+  {
+    "id": 4,
+    "title": "wash",
+    "completed": false,
+    "created_at": "2025-10-30T12:39:07.788667038+01:00",
+    "due_date": "2025-11-04",
+    "priority": "High"
   }
 ]
