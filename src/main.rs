@@ -3,7 +3,7 @@ use std::path::Path;
 use std::str::FromStr;
 
 use anyhow::{Context, Result};
-use chrono::{DateTime, Local, NaiveDate, NaiveDateTime};
+use chrono::{DateTime, Local, NaiveDate};
 use clap::{Parser, Subcommand, ValueEnum};
 use serde::{Deserialize, Serialize};
 
@@ -118,7 +118,7 @@ fn load_todos() -> Result<Vec<Todo>> {
     let data = fs::read_to_string(DB_FILE).with_context(|| format!("reading {}", DB_FILE))?;
     
     // First try to parse as the new format
-    if let Ok(mut todos) = serde_json::from_str::<Vec<Todo>>(&data) {
+    if let Ok(todos) = serde_json::from_str::<Vec<Todo>>(&data) {
         return Ok(todos);
     }
     
@@ -204,7 +204,7 @@ fn list_todos() -> Result<()> {
         
         let due_str = match t.due_date {
             Some(date) => {
-                let due_date = date.and_hms_opt(23, 59, 59).unwrap();
+                let _ = date.and_hms_opt(23, 59, 59).unwrap();
                 let days_until = (date - now.date_naive()).num_days();
                 
                 if t.completed {
