@@ -38,13 +38,26 @@ Run the app using cargo or the compiled binary.
 ### Add a task
 
 ```bash
+# Basic usage
 cargo run -- add "Buy milk"
+
+# With due date (today/tomorrow or YYYY-MM-DD)
+cargo run -- add "Buy groceries" --due tomorrow
+cargo run -- add "Pay rent" --due 2023-11-01
 ```
 
 ### List tasks
 
 ```bash
+# List all todos with status and due dates
 cargo run -- list
+
+# Example output:
+# ID    Status  Title                        Created        Due         
+# ----- ------- ---------------------------- -------------- ------------
+# 1     [ ]     Buy milk                     2h ago        -           
+# 2     [ ]     Buy groceries                1h ago        Tomorrow    
+# 3     [ ]     Pay rent                     30m ago       Nov 01      
 ```
 
 ### Mark a task as done
