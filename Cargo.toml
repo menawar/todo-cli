@@ -1,12 +1,29 @@
 [package]
 name = "todo-cli"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+description = "A command-line todo list application with priorities and due dates"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+repository = ""
+readme = "README.md"
+
+[lib]
+name = "todo_cli"
+path = "src/lib.rs"
+
+[[bin]]
+name = "todo-cli"
+path = "src/main.rs"
 
 [dependencies]
-clap = { version = "4.0", features = ["derive"] }
+clap = { version = "4.0", features = ["derive", "env"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 anyhow = "1.0"
-chrono = { version = "0.4", features = ["serde"] }
+chrono = { version = "0.4", features = ["serde", "clock"] }
+colored = "2.0"
 
+[dev-dependencies]
+assert_cmd = "2.0"
+predicates = "3.0"
